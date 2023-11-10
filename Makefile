@@ -1,4 +1,4 @@
-TARGET = my_ngram
+TARGET = my_mastermind
 SRC_DIR = src
 SRC = $(SRC_DIR)/$(TARGET).c
 OBJ_DIR = obj
