@@ -5,8 +5,6 @@
 #include "../include/my_mastermind.h"
 
 int main (){
-    
-    
     int secret_code_array[SECRET_CODE_LENGTH];
     create_secret_code(secret_code_array);
 

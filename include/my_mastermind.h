@@ -3,6 +3,7 @@
 
 // define constants
 #define SECRET_CODE_LENGTH 4
+#define MAX_ATTEMPTS 10
 
 // Function declaration
 void create_secret_code(int *secret_code);
