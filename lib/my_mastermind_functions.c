@@ -52,12 +52,11 @@ void check_for_flags(int argc, char *argv[], flag_struct *flags){
     }
 }
 
-void create_secret_code(int *secret_code){
-    // Seed the random number generator with the current time
-    srand(time(NULL));
 
+void create_random_secret_code(int *secret_code){
+    srand(time(NULL));
     for (int i = 0; i < SECRET_CODE_LENGTH; i++)
     {
-        secret_code[i] = rand() % 9;
+        secret_code[i] = rand() % 10;
     }
 }
