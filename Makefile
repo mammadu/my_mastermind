@@ -18,7 +18,8 @@ TEST_OBJ = $(patsubst $(TEST_DIR)/%.c, $(OBJ_DIR)/%.o, $(TEST_SRC)) # list all t
 INC_DIR = include
 
 # CFLAGS = -Wall -Wextra -g3 -Werror
-CFLAGS =
+CFLAGS = -Wall -Wextra -g3 -Werror -fsanitize=address
+# CFLAGS =
 
 all: $(TARGET)
 

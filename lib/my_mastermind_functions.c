@@ -15,9 +15,16 @@ bool is_user_secret_code_valid(char *user_secret_code){
     // else return false
     int secret_code_length = strlen(user_secret_code);
     if (secret_code_length != SECRET_CODE_LENGTH){
+        printf("The secret code must be %d digits long\n", SECRET_CODE_LENGTH);
         return false;
     }
-    return is_str_a_number(user_secret_code);
+    if (!is_str_a_number(user_secret_code)){
+        printf("The secret code must be a number\n");
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
 bool is_str_a_number(char *str){
@@ -53,10 +60,11 @@ void check_for_flags(int argc, char *argv[], flag_struct *flags){
 }
 
 
-void create_random_secret_code(int *secret_code){
+void create_random_secret_code(char *secret_code_array){
     srand(time(NULL));
     for (int i = 0; i < SECRET_CODE_LENGTH; i++)
     {
-        secret_code[i] = rand() % 10;
+        secret_code_array[i] = (rand() % 10) + '0';
     }
+    secret_code_array[SECRET_CODE_LENGTH] = '\0';
 }

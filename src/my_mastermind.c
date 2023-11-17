@@ -12,12 +12,16 @@ int main (int argc, char *argv[]){
     char* prompt = "Will you find the secret code?\nPlease enter a valid guess";
     printf("%s\n", prompt);
 
-    int secret_code_array[SECRET_CODE_LENGTH];
-    create_secret_code(secret_code_array);
-
-    for (int i = 0; i < SECRET_CODE_LENGTH; i++)
-    {
-        printf("%d", secret_code_array[i]);
+    char secret_code_array[SECRET_CODE_LENGTH + 1]; // +1 for null terminator
+    if (flags.flag_secret_code_on && is_user_secret_code_valid(argv[flags.flag_secret_code_position])){
+        // set the secret code to the user's secret code
+        strcpy(secret_code_array, argv[flags.flag_secret_code_position]);
     }
-    printf("\n");
+    else{
+        // create a random secret code
+        create_random_secret_code(secret_code_array);
+    }
+
+    printf("the secret code is %s\n", secret_code_array); //debug
+
 }

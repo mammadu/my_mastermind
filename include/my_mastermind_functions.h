@@ -23,14 +23,14 @@ typedef struct{
 }flag_struct;
 
 // Function declaration
-void create_random_secret_code(int *secret_code);
+void create_random_secret_code(char *secret_code_array);
 void check_for_flags(int argc, char *argv[], flag_struct *flags);
 flag_struct init_flag_struct();
 bool is_user_secret_code_valid(char *user_secret_code);
 bool is_str_a_number(char *str);
 
 // Variable declaration
-char* boolean[2] = {"false", "true"};
+// char* boolean[2] = {"false", "true"};
 
 
 #endif  // End of include guards
