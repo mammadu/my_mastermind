@@ -13,6 +13,10 @@ bool is_user_secret_code_valid(char *user_secret_code){
     // check if the user's secret code is valid
     // if it is return true
     // else return false
+    if (user_secret_code == NULL){
+        printf("The secret code must be a number\n");
+        return false;
+    }
     int secret_code_length = strlen(user_secret_code);
     if (secret_code_length != SECRET_CODE_LENGTH){
         printf("The secret code must be %d digits long\n", SECRET_CODE_LENGTH);
@@ -44,13 +48,13 @@ bool is_str_a_number(char *str){
 void check_for_flags(int argc, char *argv[], flag_struct *flags){
     for (int i = 1; i < argc; i++){
         if (argv[i][0] == '-'){
-            if (argv[i][1] == flags->flag_secret_code_representation){
+            if (argv[i][1] == flags->flag_secret_code_representation && strlen(argv[i]) == 2){
                 flags->flag_secret_code_on = true;
-                flags->flag_secret_code_position = i;
+                flags->flag_secret_code_position = i + 1;
             }
-            else if (argv[i][1] == flags->flag_attempts_representation){
+            else if (argv[i][1] == flags->flag_attempts_representation && strlen(argv[i]) == 2){
                 flags->flag_attempts_on = true;
-                flags->flag_attempts_position = i;
+                flags->flag_attempts_position = i +1;
             }
             else{
                 printf("Invalid flag: %s\n", argv[i]);
