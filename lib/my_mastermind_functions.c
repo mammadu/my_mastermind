@@ -33,7 +33,7 @@ bool is_user_secret_code_valid(char *user_secret_code){
 
 bool is_user_attempt_count_valid(char *user_attempt_count){
     if (user_attempt_count == NULL){
-        printf("You must provide a valid attempt count with flag 'f'\n");
+        printf("You must provide a valid attempt count with flag 't'\n");
         return false;
     }
     if (!is_str_a_number(user_attempt_count)){

@@ -32,4 +32,7 @@ int main (int argc, char *argv[]){
         max_attempts = MAX_ATTEMPTS;
     }
 
+    printf("the secret code is %s\n", secret_code_array); //debug
+    printf("the max_attempts is %d\n", max_attempts); //debug
+
 }
