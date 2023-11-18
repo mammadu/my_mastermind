@@ -14,7 +14,7 @@ bool is_user_secret_code_valid(char *user_secret_code){
     // if it is return true
     // else return false
     if (user_secret_code == NULL){
-        printf("The secret code must be a number\n");
+        printf("You must supply a valid secret code with flag 'c'\n");
         return false;
     }
     int secret_code_length = strlen(user_secret_code);
@@ -31,6 +31,25 @@ bool is_user_secret_code_valid(char *user_secret_code){
     }
 }
 
+bool is_user_attempt_count_valid(char *user_attempt_count){
+    if (user_attempt_count == NULL){
+        printf("You must provide a valid attempt count with flag 'f'\n");
+        return false;
+    }
+    if (!is_str_a_number(user_attempt_count)){
+        printf("The number of attempts must be a number\n");
+        return false;
+    }
+
+    if (strlen(user_attempt_count) > SECRET_CODE_LENGTH){
+        printf("The number of attempts must be less than %d digits\n", SECRET_CODE_LENGTH);
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 bool is_str_a_number(char *str){
     // check if the string is a number
     // if it is, return true
@@ -38,7 +57,7 @@ bool is_str_a_number(char *str){
     int str_length = strlen(str);
     for (int i = 0; i < str_length; i++)
     {
-        if (str[i] < '0' || str[i] >= '9'){
+        if (str[i] < '0' || str[i] > '9'){
             return false;
         }
     }
@@ -68,7 +87,7 @@ void create_random_secret_code(char *secret_code_array){
     srand(time(NULL));
     for (int i = 0; i < SECRET_CODE_LENGTH; i++)
     {
-        secret_code_array[i] = (rand() % 10) + '0';
+        secret_code_array[i] = (rand() % 9) + '0';
     }
     secret_code_array[SECRET_CODE_LENGTH] = '\0';
 }

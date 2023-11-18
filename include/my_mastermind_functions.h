@@ -27,6 +27,8 @@ void create_random_secret_code(char *secret_code_array);
 void check_for_flags(int argc, char *argv[], flag_struct *flags);
 flag_struct init_flag_struct();
 bool is_user_secret_code_valid(char *user_secret_code);
+bool is_user_attempt_count_valid(char *user_attempt_count);
+
 bool is_str_a_number(char *str);
 
 // Variable declaration

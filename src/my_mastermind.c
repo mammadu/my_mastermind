@@ -12,6 +12,7 @@ int main (int argc, char *argv[]){
     char* prompt = "Will you find the secret code?\nPlease enter a valid guess";
     printf("%s\n", prompt);
 
+    // set secret code
     char secret_code_array[SECRET_CODE_LENGTH + 1]; // +1 for null terminator
     if (flags.flag_secret_code_on && is_user_secret_code_valid(argv[flags.flag_secret_code_position])){
         // set the secret code to the user's secret code
@@ -22,6 +23,13 @@ int main (int argc, char *argv[]){
         create_random_secret_code(secret_code_array);
     }
 
-    printf("the secret code is %s\n", secret_code_array); //debug
+    //set max number of attempts
+    int max_attempts;
+    if (flags.flag_attempts_on && is_user_attempt_count_valid(argv[flags.flag_attempts_position])){
+        max_attempts = atoi(argv[flags.flag_attempts_position]);
+    }
+    else{
+        max_attempts = MAX_ATTEMPTS;
+    }
 
 }
