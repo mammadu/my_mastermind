@@ -57,11 +57,23 @@ bool is_str_a_number(char *str){
     int str_length = strlen(str);
     for (int i = 0; i < str_length; i++)
     {
-        if (str[i] < '0' || str[i] > '9'){
+        if (!is_char_a_number(str[i])){
             return false;
         }
     }
     return true;
+}
+
+bool is_char_a_number(char character){
+    // check if the character is a number
+    // if it is, return true
+    // else return false
+    if (character < '0' || character > '9'){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
 void check_for_flags(int argc, char *argv[], flag_struct *flags){

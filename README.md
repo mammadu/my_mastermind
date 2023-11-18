@@ -28,7 +28,7 @@ Mammadu Diallo
 ## TODO
 
 - update readme
-- figure out how to handle flags
+- determine how to read user input
 - save the following to C template file
     - new makefile
     - new file structure

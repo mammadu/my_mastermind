@@ -7,6 +7,7 @@
 #include <time.h>
 #include <stdbool.h>
 #include <string.h>
+#include <unistd.h>
 
 // define constants
 #define SECRET_CODE_LENGTH 4
@@ -30,6 +31,7 @@ bool is_user_secret_code_valid(char *user_secret_code);
 bool is_user_attempt_count_valid(char *user_attempt_count);
 
 bool is_str_a_number(char *str);
+bool is_char_a_number(char character);
 
 // Variable declaration
 // char* boolean[2] = {"false", "true"};
