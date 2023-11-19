@@ -103,3 +103,34 @@ void create_random_secret_code(char *secret_code_array){
     }
     secret_code_array[SECRET_CODE_LENGTH] = '\0';
 }
+
+bool is_user_guess_correct(char *user_guess, char *secret_code_array){
+    // check if the user's guess is correct
+    // if it is, return true
+    // else return false
+    if (strcmp(user_guess, secret_code_array) == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void evaluate_user_guess(char *user_guess, char *secret_code_array){
+    int well_placed_pieces = 0;
+    int misplaced_pieces = 0;
+    for (int i = 0; i < SECRET_CODE_LENGTH; i++){
+        if (user_guess[i] == secret_code_array[i]){
+            well_placed_pieces++;
+        }
+        else{
+            for (int j = 0; j < SECRET_CODE_LENGTH; j++){
+                if (user_guess[i] == secret_code_array[j]){
+                    misplaced_pieces++;
+                }
+            }
+        }
+    }
+    printf("Well placed pieces: %d\n", well_placed_pieces);
+    printf("Misplaced pieces: %d\n", misplaced_pieces);
+}
