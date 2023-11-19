@@ -4,34 +4,33 @@
 
 ## Task
 
-TODO - What is the problem? And where is the challenge?
+Create a program that will play the Mastermind game.
 
 ## Description
 
-TODO - How have you solved the problem?
+I created structs to hold flags and created functions to validate the flags.
+I then set the secret code and attempt count based on the flags.
+I then created a while loop to read the user input and evaluate if it matches the secret code.
 
 ## Installation
 
-TODO - How to install your project? npm install? make? make re?
+1. Clone the repository and navigate to the root directory in the terminal
+2. In the terminal enter `make` to compile the program
 
 ## Usage
 
-TODO - How does it work?
+```sh
+./my_mastermind //play master mind with a random secret code and 10 attempts
 ```
-./my_project argument1 argument2
+
+```sh
+./my_mastermind -c 1234 -t 20 //play master mind with secret code 1234 and 20 attempts
 ```
 
 ### The Core Team
 
 Mammadu Diallo
 
-## TODO
-
-- update readme
-- determine how to read user input
-- save the following to C template file
-    - new makefile
-    - new file structure
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
 <span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px' /></span>
