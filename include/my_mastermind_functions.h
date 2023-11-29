@@ -12,6 +12,7 @@
 // define constants
 #define SECRET_CODE_LENGTH 4
 #define MAX_ATTEMPTS 10
+#define VALID_NUMBERS 8
 
 // Define structs
 typedef struct{
