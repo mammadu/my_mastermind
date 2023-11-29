@@ -9,10 +9,8 @@ int main (int argc, char *argv[]){
         // set the code
         // set the max number of attempts
 
-    char* prompt = "Please enter a valid guess";
-    fflush(stdout); //for some reason the prompt doesn't show up without this
-
-    printf("%s\n", prompt);
+    char* welcome_message = "Will you find the secret code?\nPlease enter a valid guess";
+    printf("%s\n", welcome_message);
 
     // set secret code
     char secret_code_array[SECRET_CODE_LENGTH + 1]; // +1 for null terminator
