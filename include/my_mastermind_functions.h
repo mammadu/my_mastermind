@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
+#include "../include/my_ngram_functions.h"
 
 // define constants
 #define SECRET_CODE_LENGTH 4

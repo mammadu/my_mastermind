@@ -119,7 +119,6 @@ bool is_user_guess_correct(char *user_guess, char *secret_code_array){
 void evaluate_user_guess(char *user_guess, char *secret_code_array){
     int well_placed_pieces = 0;
     int misplaced_pieces = 0;
-    bool digits_found[VALID_NUMBERS] = {false};
     for (int i = 0; i < SECRET_CODE_LENGTH; i++){
         if (user_guess[i] == secret_code_array[i]){
             well_placed_pieces++;
