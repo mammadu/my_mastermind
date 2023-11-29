@@ -10,6 +10,8 @@ int main (int argc, char *argv[]){
         // set the max number of attempts
 
     char* prompt = "Please enter a valid guess";
+    fflush(stdout); //for some reason the prompt doesn't show up without this
+
     printf("%s\n", prompt);
 
     // set secret code
