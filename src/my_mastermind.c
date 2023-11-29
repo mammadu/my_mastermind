@@ -9,7 +9,7 @@ int main (int argc, char *argv[]){
         // set the code
         // set the max number of attempts
 
-    char* prompt = "Will you find the secret code?\nPlease enter a valid guess";
+    char* prompt = "Please enter a valid guess";
     printf("%s\n", prompt);
 
     // set secret code
