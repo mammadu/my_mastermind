@@ -34,6 +34,7 @@ int main (int argc, char *argv[]){
 
     int attempt_count = 0;
     char user_guess[SECRET_CODE_LENGTH + 1];
+    user_guess[SECRET_CODE_LENGTH] = '\0';
     while (attempt_count < max_attempts){
         printf("---\nRound %d of %d\n", attempt_count + 1, max_attempts);
         // char* prompt = ">";
@@ -44,7 +45,7 @@ int main (int argc, char *argv[]){
         char buffer;
         int read_val = read(0, &buffer, 1);
         while (buffer != '\n' && read_val != 0){
-            index = character_read_count % sizeof(user_guess);
+            index = character_read_count % SECRET_CODE_LENGTH;
             // printf("index = %d\n", index); //debug
             user_guess[index] = buffer;
             character_read_count++;
