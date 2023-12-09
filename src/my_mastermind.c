@@ -9,8 +9,8 @@ int main (int argc, char *argv[]){
         // set the code
         // set the max number of attempts
 
-    char* welcome_message = "Please enter a valid guess";
-    printf("%s\n", welcome_message);
+    char* welcome_message = "Please enter a valid guess\n";
+    printf("%s", welcome_message);
 
     // set secret code
     char secret_code_array[SECRET_CODE_LENGTH + 1]; // +1 for null terminator
@@ -48,7 +48,6 @@ int main (int argc, char *argv[]){
             read_val = read(0, &buffer, 1);
         }
         if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
-            printf("Exiting\n");
             return 0;
         }
         if (!is_str_a_number(user_guess)){
