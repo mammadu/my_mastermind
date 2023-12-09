@@ -134,3 +134,27 @@ void evaluate_user_guess(char *user_guess, char *secret_code_array){
     printf("Well placed pieces: %d\n", well_placed_pieces);
     printf("Misplaced pieces: %d\n", misplaced_pieces);
 }
+
+bool read_user_input(char *user_guess, int user_guess_length){
+    int count_of_bytes_read = read(0, user_guess, user_guess_length);
+    if (count_of_bytes_read < user_guess_length && user_guess[count_of_bytes_read - 1] != '\n')
+    {
+        printf("EOF");
+        return false;
+    }
+    else
+    {
+        user_guess[count_of_bytes_read - 1] = '\0';
+        return true;
+    }
+}
+
+bool is_user_guess_valid(char *user_guess){
+    if (strlen(user_guess) != SECRET_CODE_LENGTH){
+        return false;
+    }
+    if (!is_str_a_number(user_guess)){
+        return false;
+    }
+    return true;
+}

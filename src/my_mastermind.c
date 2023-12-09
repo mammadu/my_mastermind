@@ -9,9 +9,6 @@ int main (int argc, char *argv[]){
         // set the code
         // set the max number of attempts
 
-    char* welcome_message = "Please enter a valid guess\n";
-    printf("%s", welcome_message);
-
     // set secret code
     char secret_code_array[SECRET_CODE_LENGTH + 1]; // +1 for null terminator
     if (flags.flag_secret_code_on && is_user_secret_code_valid(argv[flags.flag_secret_code_position])){
@@ -32,33 +29,25 @@ int main (int argc, char *argv[]){
         max_attempts = MAX_ATTEMPTS;
     }
 
+    char* welcome_message = "Please enter a valid guess\n";
+    printf("%s", welcome_message);
+
     int attempt_count = 0;
-    char user_guess[SECRET_CODE_LENGTH + 1];
-    // user_guess[SECRET_CODE_LENGTH] = '\0';
+    int user_guess_length = SECRET_CODE_LENGTH + 1;
+    char user_guess[user_guess_length];
     while (attempt_count < max_attempts){
         printf("---\nRound %d of %d\n", attempt_count + 1, max_attempts);
-        // char* prompt = ">";
-        // printf("%s", prompt);
-        // fflush(stdout); //for some reason the prompt doesn't show up without this
-        int character_read_count = 0;
-        int index = 0;
-        char buffer;
-        int read_val = read(0, &buffer, 1);
-        // printf("buffer = %c\n", buffer); //debug
-        while (buffer != '\n' && read_val != 0){
-            index = character_read_count % SECRET_CODE_LENGTH;
-            // printf("index = %d\n", index); //debug
-            user_guess[index] = buffer;
-            character_read_count++;
-            read_val = read(0, &buffer, 1);
-            // printf("read_val = %d\n", read_val); //debug
-            // printf("buffer = %c\n", buffer); //debug
+        if (!read_user_input(user_guess, user_guess_length)){
+            /*
+            read_user_input reads the users input and returns true or false
+                returns false if the user presses ctrl + d
+                else returns true
+
+            if the user presses ctrl + d, we want to exit the program
+            */
+           exit(0);
         }
-        if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
-            printf("EOF\n");
-            exit(0);
-        }
-        if (!is_str_a_number(user_guess)){
+        if (!is_user_guess_valid(user_guess)){
             printf("Wrong input!\n");
             continue;
         }

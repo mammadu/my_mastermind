@@ -33,6 +33,8 @@ bool is_user_secret_code_valid(char *user_secret_code);
 bool is_user_attempt_count_valid(char *user_attempt_count);
 bool is_user_guess_correct(char *user_guess, char *secret_code_array);
 void evaluate_user_guess(char *user_guess, char *secret_code_array);
+bool read_user_input(char *user_guess, int user_guess_length);
+bool is_user_guess_valid(char *user_guess);
 
 
 
