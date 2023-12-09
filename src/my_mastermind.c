@@ -36,19 +36,25 @@ int main (int argc, char *argv[]){
     char user_guess[SECRET_CODE_LENGTH + 1];
     while (attempt_count < max_attempts){
         printf("---\nRound %d of %d\n", attempt_count + 1, max_attempts);
-        char* prompt = ">";
-        printf("%s", prompt);
-        fflush(stdout); //for some reason the prompt doesn't show up without this
-        int characters_read = 0;
+        // char* prompt = ">";
+        // printf("%s", prompt);
+        // fflush(stdout); //for some reason the prompt doesn't show up without this
+        int character_read_count = 0;
+        int index = 0;
         char buffer;
         int read_val = read(0, &buffer, 1);
         while (buffer != '\n' && read_val != 0){
-            user_guess[characters_read] = buffer;
-            characters_read++;
+            index = character_read_count % sizeof(user_guess);
+            // printf("index = %d\n", index); //debug
+            user_guess[index] = buffer;
+            character_read_count++;
             read_val = read(0, &buffer, 1);
-        }
-        if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
-            return 0;
+            // printf("read_val = %d\n", read_val); //debug
+            // printf("buffer = %c\n", buffer); //debug
+            if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
+                printf("EOF\n");
+                exit(0);
+            }
         }
         if (!is_str_a_number(user_guess)){
             printf("Wrong input!\n");
