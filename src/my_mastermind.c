@@ -53,10 +53,10 @@ int main (int argc, char *argv[]){
             read_val = read(0, &buffer, 1);
             // printf("read_val = %d\n", read_val); //debug
             // printf("buffer = %c\n", buffer); //debug
-            if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
-                printf("EOF\n");
-                exit(0);
-            }
+        }
+        if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
+            printf("EOF\n");
+            exit(0);
         }
         if (!is_str_a_number(user_guess)){
             printf("Wrong input!\n");
