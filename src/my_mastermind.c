@@ -41,11 +41,15 @@ int main (int argc, char *argv[]){
         fflush(stdout); //for some reason the prompt doesn't show up without this
         int characters_read = 0;
         char buffer;
-        read(0, &buffer, 1);
-        while (buffer != '\n'){
+        int read_val = read(0, &buffer, 1);
+        while (buffer != '\n' && read_val != 0){
             user_guess[characters_read] = buffer;
             characters_read++;
-            read(0, &buffer, 1);
+            read_val = read(0, &buffer, 1);
+        }
+        if (read_val == 0){ //read_val ==) means EOF (ctrl + d)
+            printf("Exiting\n");
+            return 0;
         }
         if (!is_str_a_number(user_guess)){
             printf("Wrong input!\n");
