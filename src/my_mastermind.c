@@ -3,11 +3,6 @@
 int main (int argc, char *argv[]){
     flag_struct flags = init_flag_struct();
     check_for_flags(argc, argv, &flags);
-    // if we find a flag we must ensure the next argument is valid
-    // validate argument by making sure it's an integer
-    // if valid
-        // set the code
-        // set the max number of attempts
 
     // set secret code
     char secret_code_array[SECRET_CODE_LENGTH + 1]; // +1 for null terminator
@@ -38,13 +33,6 @@ int main (int argc, char *argv[]){
     while (attempt_count < max_attempts){
         printf("---\nRound %d of %d\n", attempt_count + 1, max_attempts);
         if (!read_user_input(user_guess, user_guess_length)){
-            /*
-            read_user_input reads the users input and returns true or false
-                returns false if the user presses ctrl + d
-                else returns true
-
-            if the user presses ctrl + d, we want to exit the program
-            */
            exit(0);
         }
         if (!is_user_guess_valid(user_guess)){
