@@ -137,7 +137,11 @@ void evaluate_user_guess(char *user_guess, char *secret_code_array){
 
 bool read_user_input(char *user_guess, int user_guess_length){
     int count_of_bytes_read = read(0, user_guess, user_guess_length);
-    if (count_of_bytes_read < user_guess_length && user_guess[count_of_bytes_read - 1] != '\n')
+    if (count_of_bytes_read == 0)
+    {
+        return false;
+    }
+    else if (count_of_bytes_read < user_guess_length && user_guess[count_of_bytes_read - 1] != '\n')
     {
         // printf("EOF");//debug
         return false;
