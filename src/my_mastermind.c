@@ -24,7 +24,7 @@ int main (int argc, char *argv[]){
         max_attempts = MAX_ATTEMPTS;
     }
 
-    char* welcome_message = "Please enter a valid guess\n";
+    char* welcome_message = "Will you find the secret code?\nPlease enter a valid guess\n";
     printf("%s", welcome_message);
 
     int attempt_count = 0;
