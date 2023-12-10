@@ -48,4 +48,5 @@ int main (int argc, char *argv[]){
         }
         attempt_count++;
     }
+    printf("You lost! The secret code was %s\n", secret_code_array);
 }
